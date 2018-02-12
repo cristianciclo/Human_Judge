@@ -21,7 +21,10 @@ $(document).ready(function(){
 			"Articulo 7",
 			"Articulo 30",
 			"Articulo 12",
-		]
+
+		],
+
+
 
 		[
 			"Se le acusa de no permitir una vivienda a una persona por el hecho de ser de color",
@@ -30,7 +33,10 @@ $(document).ready(function(){
 			"Articulo 13",
 			"Articulo 21",
 			"Articulo 13",
-		]
+
+		],
+
+
 
 		[
 			"Se le acusa de denegar el paso a un grupo de personas que buscaban refugio durante un terremoto.",
@@ -39,7 +45,10 @@ $(document).ready(function(){
 			"Articulo 13",
 			"Articulo 22",
 			"Articulo 14",
-		]
+
+		],
+
+
 
 		[
 			"Se le acusa de denegar la nacionalidad a una persona de color, solo por el hecho de ser de etnia y raza diferente a el.",
@@ -48,7 +57,9 @@ $(document).ready(function(){
 			"Articulo 1",
 			"Articulo 15",
 			"Articulo 15",
-		]
+
+		],
+
 
 		[
 			"Se le acusa de no permitir casarse a una pareja arábica, por ser de raza diferente a la suya.",
@@ -110,6 +121,7 @@ $(document).ready(function(){
     }
 
     inicializar();
+
     
 });
 
