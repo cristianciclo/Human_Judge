@@ -7,7 +7,7 @@ $(document).ready(function(){
     var cont=0;
     var preguntas = [
         [
-            "1- Se le acusa por gritar, faltar al respeto y humillar en público a una persona de descendencia africana",
+            "1- Se le acusa de gritar, faltar al respeto y humillar en público a una persona de descendencia africana",
             "Articulo 1",
             "Articulo 3",
             "Articulo 4",
@@ -17,7 +17,7 @@ $(document).ready(function(){
         ],
 
         [
-            "2- Se le acusa por acosar a un basurero repetidas veces, humillando su honor provocando daños psicológicos a la víctima.",
+            "2- Se le acusa de acosar a un basurero repetidas veces, humillando su honor provocando daños psicológicos a la víctima.",
             "Articulo 12",
             "Articulo 6",
             "Articulo 7",
