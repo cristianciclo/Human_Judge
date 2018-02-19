@@ -2,6 +2,7 @@ $(document).ready(function(){
     var nivel=1;
     var pregunta=0;
     var busqueda=7;
+    var inicio=0;
     var variable=0;
     var puntos=0;
     var cont=0;
@@ -16,7 +17,7 @@ $(document).ready(function(){
             "Articulo 5",
             "Articulo 1",
             true,
-            "Artículo 1: Todos los seres humanos nacen libres e iguales en dignidad y derechos y, dotados como están de razón y conciencia, deben comportarse fraternalmente los unos con los otros.",
+            "Todos los seres humanos nacen libres e iguales en dignidad y derechos y, dotados como están de razón y conciencia, deben comportarse fraternalmente los unos con los otros.",
         ],
 
         [
@@ -27,7 +28,7 @@ $(document).ready(function(){
             "Articulo 7",
             "Articulo 3",
             true,
-            "Artículo 3: Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.",
+            "Todo individuo tiene derecho a la vida, a la libertad y a la seguridad de su persona.",
         ],
 
         [
@@ -253,29 +254,44 @@ $(document).ready(function(){
 
     ];
 
+
+    /*-----------------INICIAR----------------*/
     function inicializar(){
         $("#nivel").text("Nivel: "+nivel);
         $("#puntos").text("Puntos: "+puntos);
+        
 
-        cargarPreguntas();
+        //cargarPreguntas();
+        cargarInfo();
         $("#continue").hide();
     }
 
-    $("#op").children("button").click(function(){
-            comprobar($(this).text(),variable);
-        });
-    $("#continue").click(function(){
-            alert("cargar siguiente nivel");
-            pregunta=0;
-            busqueda+=7;
-            $("button").show();
-            $("#continue").hide();
-            
-            cargarPreguntas();
-        });
+    /*-------------CARGAR INFO ARTICULOS-----------------*/
 
-    function cargarPreguntas(){    	
-         if(pregunta < 5){
+    function cargarInfo(){
+        $("#info").show();
+        $("#juez").hide();
+        $("#op").hide();
+        //$("#info").text("");
+        for (var i = inicio; i < busqueda; i++) {
+            $("#info").append("<p style='padding:15px;'>"+preguntas[i][5]+" : "+preguntas[i][7]+"</p>");     
+        }
+        //$("#info").append("<button id='btn5' class='btn btn-primary'>Comenzar</button>") ;
+    }
+
+
+    /*---------------COMENZAR NIVE--------------*/
+
+    $("#btn5").click(function(){
+        cargarPreguntas();
+        $("#info").hide();
+        $("#juez").show();
+        $("#op").show();
+    });
+
+    /*---------------CARGAR PREGUNTAS-------------*/
+    function cargarPreguntas(){     
+        if(pregunta < 5){
         variable = escogerPreguntas();        
         $("#juez").show();
         $("#pregunta").text(preguntas[variable][0]);
@@ -284,7 +300,7 @@ $(document).ready(function(){
         $("#btn3").text(preguntas[variable][3]);
         $("#btn4").text(preguntas[variable][4]);
         $("#ok").click(function(){
-        	$("#juez").hide();
+            $("#juez").hide();
         });
 
         pregunta++;
@@ -293,7 +309,7 @@ $(document).ready(function(){
             alert("fin de nivel");
             $("#pregunta").text('Siguiente nivel');
             nivel++;
-	        $("#nivel").text("Nivel: "+nivel);
+            $("#nivel").text("Nivel: "+nivel);
 
             $("button").hide();
             $("#continue").show();
@@ -302,6 +318,36 @@ $(document).ready(function(){
            
     }
 
+
+    /*-----------CONTINUAR-----------------*/
+    $("#continue").click(function(){
+            alert("cargar siguiente nivel");
+            pregunta=0;
+            inicio=busqueda;
+            busqueda+=7;
+            $("button").show();
+            $("#continue").hide();
+            
+            //cargarPreguntas();
+            cargarInfo();
+        });
+
+
+
+/*LLAMAR A LA COMPROVACION*/
+    $("#op").children("button").click(function(){
+            comprobar($(this).text(),variable);
+        });
+
+
+
+
+
+
+
+
+
+/*---------------COMPROBAR RESPUESTA------------------*/
     function comprobar(respuesta,op){
         if(respuesta==preguntas[op][5]){
             alert("correcto");
@@ -321,7 +367,7 @@ $(document).ready(function(){
             }           
         }
     }
-
+/*-----------COGER PREGUNTAS-------------------*/
     function escogerPreguntas(){
         var parar = false;
         while(parar==false){
@@ -339,6 +385,27 @@ $(document).ready(function(){
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+/*-----------------HUD-----------------*/
 
     	//Tiempo
     function startTimer(duracion, display) {
