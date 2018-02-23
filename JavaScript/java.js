@@ -259,7 +259,7 @@ $(document).ready(function(){
     function inicializar(){
         $("#nivel").text("Nivel: "+nivel);
         $("#puntos").text("Puntos: "+puntos);
-        
+        $("#ayuda").hide();
 
         //cargarPreguntas();
         cargarInfo();
@@ -276,6 +276,19 @@ $(document).ready(function(){
         for (var i = inicio; i < busqueda; i++) {
             $("#info").append("<p style='padding:15px;'>"+preguntas[i][5]+" : "+preguntas[i][7]+"</p>");     
         }
+
+        $("#ayuda").click(function(){
+        if ($("#ayuda").text()=="Ayuda") {
+            $("#info").show();
+            $("#ayuda").text("Ocultar ayuda");
+            $("#btn5").hide();
+        }else{
+            $("#info").hide();
+            $("#ayuda").text("Ayuda");
+            $("#btn5").show();
+        }
+    });
+
         //$("#info").append("<button id='btn5' class='btn btn-primary'>Comenzar</button>") ;
     }
 
@@ -287,6 +300,7 @@ $(document).ready(function(){
         $("#info").hide();
         $("#juez").show();
         $("#op").show();
+        $("#ayuda").show();
     });
 
     /*---------------CARGAR PREGUNTAS-------------*/
@@ -303,6 +317,7 @@ $(document).ready(function(){
             $("#juez").hide();
         });
 
+
         pregunta++;
        
         }else{
@@ -310,10 +325,9 @@ $(document).ready(function(){
             $("#pregunta").text('Siguiente nivel');
             nivel++;
             $("#nivel").text("Nivel: "+nivel);
-
             $("button").hide();
             $("#continue").show();
-           
+            $("#ayuda").hide();
         }
            
     }
@@ -326,6 +340,7 @@ $(document).ready(function(){
             inicio=busqueda;
             busqueda+=7;
             $("button").show();
+            $("#ayuda").hide();
             $("#continue").hide();
             
             //cargarPreguntas();

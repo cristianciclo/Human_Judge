@@ -106,3 +106,12 @@ html {
 	margin: auto;
 	margin-top: 100px;
 }
+
+/*Botón de ayuda.*/
+
+#ayuda{
+	position: absolute;	
+	top: 190px;
+	right: 55px;
+
+}
