@@ -11,13 +11,25 @@
     <script type="text/javascript" src="JavaScript/java.js"></script>
 </head>
 <body>
-	<div id="puntos">PUNTOS</div>
-	<div id="nivel">NIVEL</div>
-	<div id="tiempo"> TIEMPO <br><span id="reloj"></span></div>
-	<div id="juez">
-		<div id="imjuez"><img src="./Imagenes/juez.png"></div>
+	<div id="puntos" class="degradado">PUNTOS</div>
+	<div id="nivel" class="degradado">NIVEL</div>
+	<div id="tiempo" class="degradado"><SPAN id="ti">TIEMPO</SPAN>  <br>
+		<span id="reloj"></span>
+	</div>
+	<button id="ayuda" class="btn btn-warning">Ayuda
+		
+	</button>
+	<div id="info" class="degradado">
+		<button id="btn5" class="btn btn-primary">
+			<img src="./Imagenes/start.gif" id="imgbtn">
+		</button>
+	</div>
+	<div id="juez" class="degradado">
+		<div id="imjuez"><img src="./Imagenes/juez.gif"></div>
 		<p id="pregunta">Pregunta</p>
-		<button id="ok" class="btn btn-success">Continuar</button>
+		<button id="ok" >
+			<img src="./Imagenes/continue.gif" id="imgbtnok">
+		</button>
 	</div>
 	<div id="op">
 		<button id="btn1" class="btn btn-primary">Set Text</button>
@@ -26,6 +38,7 @@
 		<button id="btn4" class="btn btn-primary">Set Text</button>
 	</div>
 	<button id="continue" class="btn btn-warning">Continuar</button>
+	<button id="gameover" class="btn btn-danger">Ranking</button>
 	
 </body>
 </html>
