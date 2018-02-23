@@ -258,12 +258,11 @@ $(document).ready(function(){
     /*-----------------INICIAR----------------*/
     function inicializar(){
         $("#nivel").text("Nivel: "+nivel);
-        $("#puntos").text("Puntos: "+puntos);
-        
-
+        $("#puntos").text("Puntos: "+puntos);       
         //cargarPreguntas();
         cargarInfo();
         $("#continue").hide();
+         $("#ayuda").hide();
     }
 
     /*-------------CARGAR INFO ARTICULOS-----------------*/
@@ -272,6 +271,8 @@ $(document).ready(function(){
         $("#info").show();
         $("#juez").hide();
         $("#op").hide();
+        $("#ayuda").show();
+
         //$("#info").text("");
         for (var i = inicio; i < busqueda; i++) {
             $("#info").append("<p style='padding:15px;'>"+preguntas[i][5]+" : "+preguntas[i][7]+"</p>");     
@@ -287,6 +288,8 @@ $(document).ready(function(){
         $("#info").hide();
         $("#juez").show();
         $("#op").show();
+        $("#ayuda").show();
+
     });
 
     /*---------------CARGAR PREGUNTAS-------------*/
@@ -313,6 +316,7 @@ $(document).ready(function(){
 
             $("button").hide();
             $("#continue").show();
+            $("#ayuda").hide();
            
         }
            
@@ -327,9 +331,9 @@ $(document).ready(function(){
             busqueda+=7;
             $("button").show();
             $("#continue").hide();
-            
             //cargarPreguntas();
             cargarInfo();
+            $("#ayuda").hide();
         });
 
 
@@ -342,6 +346,17 @@ $(document).ready(function(){
 
 
 
+        $("#ayuda").click(function(){
+        if ($("#ayuda").text()=="Ayuda") {
+            $("#info").show();
+            $("#ayuda").text("Ocultar ayuda");
+            $("#btn5").hide();
+        }else{
+            $("#info").hide();
+            $("#ayuda").text("Ayuda");
+            $("#btn5").show();
+        }
+    });
 
 
 
@@ -433,7 +448,7 @@ $(document).ready(function(){
 	}
 
 	window.onload = function () {
-	    var fiveMinutes = 60 * 5,
+	    var fiveMinutes = 60 * 7,
 	        display = document.querySelector('#reloj');
 	    startTimer(fiveMinutes, display);
 	};

@@ -21,6 +21,28 @@ html {
 	src:url(../Fuentes/bit.ttf);
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	border-radius: 10px;
+    background: #ffcc99; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #ff8c1a; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #663300; 
+    
+}
+
 .degradado{
 	border-color: #663300;
 	background: rgba(255,146,10,0.78);
@@ -31,6 +53,9 @@ html {
 	background: -ms-linear-gradient(left, rgba(255,146,10,0.78) 0%, rgba(255,175,75,0.87) 100%);
 	background: linear-gradient(to right, rgba(255,146,10,0.78) 0%, rgba(255,175,75,0.87) 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff920a', endColorstr='#ffaf4b', GradientType=1 );
+	border-style: double; 
+	border-width: 4px;
+	border-color: #663300;
 }
 
 #puntos{
@@ -45,17 +70,18 @@ html {
 
 
 #nivel{	
-	width: 130px;
+	width: 190px;
 	margin:0 auto;
-	font-size: 2em;
+		margin-top: 20px;
+	font-size: 1.8em;
 	padding: 10px;
 	background-color: rgba(20,120,197,0.5);
 	border-radius: 1em;
 }
 
 #tiempo{
-	width: 95px;
-	height: 80px;
+	width: 105px;
+	height: 60px;
 	margin-right: 50px;
 	margin-top: 20px; 
 	position: relative;
@@ -78,7 +104,6 @@ html {
 	border-width: 4px;
 	border-color: #663300;
 	font-family: texto;
-
 	font-size: 2em;
 }
 
@@ -130,7 +155,7 @@ html {
 
 #info{
 	width: 60%;
-	/*height: 300px;*/
+	height: 680px;
 	border-radius: 1em;
 	/*background-color: red;*/
 	margin: auto;
@@ -139,6 +164,8 @@ html {
 	border-width: 4px;
 	border-color: #663300;
 	font-size: 1.5em;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #btn5{
@@ -147,7 +174,23 @@ html {
 	margin-left: 45%;
 }
 
+
 #imgbtn{
 	width: 100px;
 
+}
+
+
+
+#ayuda{
+	font-family: texto;
+	position: absolute;	
+	top: 190px;
+	right: 55px;
+	font-size: 2em;
+
+}
+
+#ti{
+	font-size: 1.5em;
 }
