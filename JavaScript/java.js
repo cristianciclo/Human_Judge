@@ -275,7 +275,7 @@ $(document).ready(function(){
 
         //$("#info").text("");
         for (var i = inicio; i < busqueda; i++) {
-            $("#info").append("<p style='padding:15px;'>"+preguntas[i][5]+" : "+preguntas[i][7]+"</p>");     
+            $("#info").append("<p style='padding:15px;'><spam id='strong'>"+preguntas[i][5]+":</spam> "+preguntas[i][7]+"</p>");     
         }
         //$("#info").append("<button id='btn5' class='btn btn-primary'>Comenzar</button>") ;
     }
@@ -287,7 +287,7 @@ $(document).ready(function(){
         cargarPreguntas();
         $("#info").hide();
         $("#juez").show();
-        $("#op").show();
+        $("#op").hide();
         $("#ayuda").show();
 
     });
@@ -303,6 +303,7 @@ $(document).ready(function(){
         $("#btn3").text(preguntas[variable][3]);
         $("#btn4").text(preguntas[variable][4]);
         $("#ok").click(function(){
+            $("#op").show();
             $("#juez").hide();
         });
 
@@ -366,6 +367,7 @@ $(document).ready(function(){
     function comprobar(respuesta,op){
         if(respuesta==preguntas[op][5]){
             alert("correcto");
+            $("#op").hide();
             puntos+=5;
             $("#puntos").text("Puntos: "+puntos);
             if (cont==15) {
@@ -374,7 +376,8 @@ $(document).ready(function(){
                 cargarPreguntas();
             }
         }else{
-            alert("incorrecto");                  
+            alert("incorrecto");     
+            $("#op").hide();             
             if (cont==15) {
                 alert("Se acabó el juego.");
             }else{

@@ -108,9 +108,12 @@ html {
 }
 
 #imjuez > img{
-	width: 90px;
+	width: 300px;
 	position: relative;
 	float: left;
+	top:-71px;
+	left: -50px;
+	margin-right: -6%;
 
 }
 
@@ -135,6 +138,10 @@ html {
 	position: absolute;
 	right: 0px;
 	bottom: 10px;
+	border:none;
+	background: none;
+	margin-left: 100px;
+	
 }
 
 #reloj{
@@ -173,6 +180,11 @@ html {
 	background: none;
 	margin-left: 45%;
 }
+#pregunta{
+	margin-left: -6%;
+
+	margin-right: 5%;
+}
 
 
 #imgbtn{
@@ -180,7 +192,11 @@ html {
 
 }
 
+#imgbtnok{
+	width: 75px;
+	margin-bottom: -10px;
 
+}
 
 #ayuda{
 	font-family: texto;
@@ -193,4 +209,9 @@ html {
 
 #ti{
 	font-size: 1.5em;
+}
+
+#strong{
+	font-size: 1.5em;
+	color:#663300;
 }
