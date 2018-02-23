@@ -264,6 +264,8 @@ $(document).ready(function(){
         //cargarPreguntas();
         cargarInfo();
         $("#continue").hide();
+
+
     }
 
     /*-------------CARGAR INFO ARTICULOS-----------------*/
@@ -277,17 +279,6 @@ $(document).ready(function(){
             $("#info").append("<p style='padding:15px;'>"+preguntas[i][5]+" : "+preguntas[i][7]+"</p>");     
         }
 
-        $("#ayuda").click(function(){
-        if ($("#ayuda").text()=="Ayuda") {
-            $("#info").show();
-            $("#ayuda").text("Ocultar ayuda");
-            $("#btn5").hide();
-        }else{
-            $("#info").hide();
-            $("#ayuda").text("Ayuda");
-            $("#btn5").show();
-        }
-    });
 
         //$("#info").append("<button id='btn5' class='btn btn-primary'>Comenzar</button>") ;
     }
@@ -355,8 +346,19 @@ $(document).ready(function(){
         });
 
 
-
-
+    
+        $("#ayuda").click(function(){
+        if ($("#ayuda").text()=="Ayuda") {
+            $("#info").show();
+            $("#ayuda").text("Ocultar ayuda");
+            $("#btn5").hide();
+        }else{
+            $("#info").hide();
+            $("#ayuda").text("Ayuda");
+            $("#btn5").show();
+        }
+    });
+        
 
 
 
