@@ -6,7 +6,22 @@ $(document).ready(function(){
     var variable=0;
     var puntos=0;
     var cont=0;
+        //Parámetros del temporizador, aquí cambiamos el numero multiplicado por 60 por el número de minutos que queremos que dure la partida.
+    var Minutos = 60 * 7,
+    reloj = document.querySelector('#reloj');
+    startTimer(Minutos, reloj);
+
+    cargarfondo();
+
+    function cargarfondo(){
+        var num = Math.round(Math.random() * 10);
+        //alert(num);
+        $("html").css("background-image", "url('Imagenes/backgrounds/"+num+".gif')");
+    }
+   
+
     var preguntas = [
+
 
     /*---------------------Primer Bloque--------------------*/
         [
@@ -262,7 +277,8 @@ $(document).ready(function(){
         //cargarPreguntas();
         cargarInfo();
         $("#continue").hide();
-         $("#ayuda").hide();
+        $("#gameover").hide();
+        $("#ayuda").hide();
     }
 
     /*-------------CARGAR INFO ARTICULOS-----------------*/
@@ -279,6 +295,7 @@ $(document).ready(function(){
         }
         //$("#info").append("<button id='btn5' class='btn btn-primary'>Comenzar</button>") ;
     }
+
 
 
     /*---------------COMENZAR NIVE--------------*/
@@ -339,12 +356,12 @@ $(document).ready(function(){
 
 
 
-/*LLAMAR A LA COMPROVACION*/
+
+/*LLAMAR A LA COMPROBACION*/
+
     $("#op").children("button").click(function(){
             comprobar($(this).text(),variable);
         });
-
-
 
 
         $("#ayuda").click(function(){
@@ -403,26 +420,6 @@ $(document).ready(function(){
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
 /*-----------------HUD-----------------*/
 
     	//Tiempo
@@ -442,9 +439,12 @@ $(document).ready(function(){
 
         display.textContent = minutos + ":" + segundos; 
 
-        if (difer <= 0) {
-            start = Date.now() + 1000;
-        }
+            if (difer <= 0) {
+               // start = Date.now() + 1000;
+               //Aquí hay que detener totalmente la partida y aún no se ha hecho ya que el return no basta, habría que disparar el menú de nuevo (Aún no está hecho).
+               alert("Time out");
+                $("#gameover").show();
+            }
 	    };
 	    tempor();
 	    setInterval(tempor, 1000);

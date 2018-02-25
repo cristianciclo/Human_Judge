@@ -7,10 +7,11 @@
 /*# sourceMappingURL=bootstrap.min.css.map */
 
 html { 
-  background:  url(../Imagenes/background-clean.gif) no-repeat center center fixed; 
+ background: no-repeat center center fixed; 
   background-size: cover;
   font-family: texto;
 }
+
 *{
 	font-family: texto;
 	font-size: 0.7em;
@@ -42,6 +43,12 @@ html {
 	background: #663300; 
     
 }
+
+
+body{
+	overflow-y: hidden;
+}
+
 
 .degradado{
 	border-color: #663300;
@@ -154,9 +161,22 @@ html {
 
 #continue{
 	position: absolute;
-	bottom: 10px;
-	left:47%;
+	bottom: 40px;
+	left:43.5%;
 	margin: auto;
+	font-family: texto;
+	font-size: 2em;
+}
+
+
+#gameover{
+	position: absolute;
+	top: 240px;
+	left:44%;
+	margin: auto;
+	font-family: texto;
+	font-size: 2em;
+
 
 }
 
