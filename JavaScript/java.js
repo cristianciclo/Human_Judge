@@ -23,7 +23,6 @@ $(document).ready(function(){
     var preguntas = [
 
 
-
     /*---------------------Primer Bloque--------------------*/
         [
             "1- Se le acusa de gritar, faltar al respeto y humillar en público a una persona de descendencia africana",
@@ -298,6 +297,7 @@ $(document).ready(function(){
     }
 
 
+
     /*---------------COMENZAR NIVE--------------*/
 
     $("#btn5").click(function(){
@@ -356,10 +356,13 @@ $(document).ready(function(){
 
 
 
+
 /*LLAMAR A LA COMPROBACION*/
+
     $("#op").children("button").click(function(){
             comprobar($(this).text(),variable);
         });
+
 
         $("#ayuda").click(function(){
         if ($("#ayuda").text()=="Ayuda") {
@@ -417,7 +420,6 @@ $(document).ready(function(){
         }
     }
 
-
 /*-----------------HUD-----------------*/
 
     	//Tiempo
@@ -447,6 +449,12 @@ $(document).ready(function(){
 	    tempor();
 	    setInterval(tempor, 1000);
 	}
+
+	window.onload = function () {
+	    var fiveMinutes = 60 * 7,
+	        display = document.querySelector('#reloj');
+	    startTimer(fiveMinutes, display);
+	};
 
     inicializar();
 

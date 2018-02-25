@@ -44,9 +44,11 @@ html {
     
 }
 
+
 body{
 	overflow-y: hidden;
 }
+
 
 .degradado{
 	border-color: #663300;
@@ -166,6 +168,7 @@ body{
 	font-size: 2em;
 }
 
+
 #gameover{
 	position: absolute;
 	top: 240px;
@@ -173,6 +176,8 @@ body{
 	margin: auto;
 	font-family: texto;
 	font-size: 2em;
+
+
 }
 
 #info{
