@@ -8,11 +8,13 @@ $(document).ready(function(){
     var cont=0;
     var ayudas=0;
     var dificultad="";
+    var x=0;
+    cargarX();
 
 
     //Parámetros del temporizador, aquí cambiamos el numero multiplicado por 60 por el número de minutos que queremos que dure la partida.
 
-     var Minutos = 60 * 7,
+    var Minutos = 60 * 7,
     reloj = document.querySelector('#reloj');
     startTimer(Minutos, reloj);
 
@@ -277,6 +279,8 @@ $(document).ready(function(){
     /*-----------------INICIAR----------------*/
     function iniciooo(){
         $("#menu").show();
+        $("#tutorial").hide();
+        $("#ranking").hide();
         $("#info").hide();
         $("#nivel").hide()
         $("#juez").hide();
@@ -290,6 +294,7 @@ $(document).ready(function(){
         $("#correcto").hide();
         $("#incorrecto").hide();
         $("#gameover").hide();
+        
         /*$("#facil").hide();
         $("#normal").hide();
         $("#dificil").hide();*/
@@ -317,6 +322,7 @@ $(document).ready(function(){
     /*-------------CARGAR INFO ARTICULOS-----------------*/
 
     function cargarInfo(){
+        $("#gameover").hide();
         $("#info").show();
         $("#juez").hide();
         $("#op").hide();
@@ -427,6 +433,30 @@ $(document).ready(function(){
             $("#ayuda").hide();
     });
 
+    /*------------tutorial----------------*/
+    $("#tuto").click(function(){
+        $("#menu").hide();
+        $("#tutorial").show();
+    })
+
+    $("#volver").click(function(){
+        $("#tutorial").hide();
+        $("#menu").show();
+    })
+
+    /*---------------ranking---------------*/
+
+    $("#rank").click(function(){
+        $("#menu").hide();
+        $("#ranking").show();
+        $("#introducir").show();
+        $("#enviar").show();
+    })
+
+    $("#volvermenu").click(function(){
+        $("#ranking").hide();
+        $("#menu").show();
+    })
 
 
 /*LLAMAR A LA COMPROBACION*/
@@ -503,6 +533,7 @@ $(document).ready(function(){
                             $("#puntos").text("Puntos: "+puntos);
                             if (cont==15) {
                                 alert("Se acabó el juego.");
+                                $("#gameover").show();
                             }else{
                                 $("#ok").show();
                                 cargarPreguntas();
@@ -545,6 +576,7 @@ $(document).ready(function(){
                             /*$("#juez").hide();*/             
                             if (cont==15) {
                                 alert("Se acabó el juego.");
+                                $("#gameover").show();
                             }else{
                                 /*$("#juez").hide();*/
                                 $("#ok").show();
@@ -586,6 +618,81 @@ $(document).ready(function(){
         }
     }
 
+
+    /*---------------RANKING----------------*/
+
+    $("#enviar").click(function(){
+        
+        if($("#nombre").val()==""){
+            alert("Debe introducir su nombre");
+            console.log($("#nombre").val());
+        }else{
+            localStorage.setItem("jugador"+x, $("#nombre").val()+":"+Math.floor(Math.random()*10));
+            x++;
+            localStorage.setItem("x",x);
+            
+            
+            $("#introducir").hide();
+            $("#enviar").hide();
+            cargarRanking();
+        }
+    });
+
+
+    function cargarRanking(){
+        var points = [];
+        var mostrando=[];
+        var mayor=0;
+        var poscion="";
+        var position="";
+        for(var h=0; h<x;h++){
+            console.log(localStorage.getItem("jugador"+h));
+            points.push(localStorage.getItem("jugador"+h));
+
+            /*var miStorage = localStorage;
+            console.log(miStorage.key(12));*/
+            /*var nume=$("#clasif").children("p").eq(h-1).val();
+            var valor=nume.split(":");
+            var nume1=localStorage.getItem("jugador"+h);
+            var valor1=nume1.split(":");
+            if(valor1[1]<valor[1]){
+                $("#clasif").prepend("<p>"+localStorage.getItem("jugador"+h)+"</p>");                    
+            }else{
+                $("#clasif").append("<p>"+localStorage.getItem("jugador"+h)+"</p>");
+            }*/
+            $("#clasif").append("<p>"+localStorage.getItem("jugador"+h)+"</p>");
+
+
+            
+        }   
+            console.log("-------------------------------");
+        for(var j=0; j<points.length;j++){
+            var nume=points[j].split(":");
+            var valor=nume[1];
+            for(var t=0; t<j; t++){
+                var nume2=points[t].split(":");
+                var valor2=nume2[1];
+                if(nume < nume2){
+                    mayor=nume2;
+                    poscion=points[t];
+                    position=t;
+                }
+            }
+            points.splice(1,position);
+            mostrando.push(poscion);
+
+            /*console.log(points[j]);*/
+        }
+        console.log("||||||||||||||||||||||||||||||||||||||||||||||||");
+        for(var m=0; m<mostrando.length;m++){
+            console.log(mostrando[m]);
+        }
+    }
+
+    function cargarX(){
+        x=localStorage.getItem("x");
+        console.log(localStorage.getItem("x"));
+    }
 
 
 /*-----------------HUD-----------------*/

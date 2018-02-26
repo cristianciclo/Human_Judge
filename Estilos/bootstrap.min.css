@@ -191,7 +191,60 @@ body{
 	padding-bottom: 5%; 
 }
 
+#tutorial{
+	position: absolute;
+	width: 60%;
+	min-height: 60%;
+	border-radius: 1em;
+	/*background-color: red;*/
+	margin: auto;
+	margin-top: 5%;
+	margin-left: 20%;
+	border-style: double; 
+	border-width: 4px;
+	border-color: #663300;
+	font-size: 1.5em;	
+	padding-bottom: 5%; 
+}
+
+#ranking{
+	position: absolute;
+	width: 60%;
+	min-height: 60%;
+	border-radius: 1em;
+	/*background-color: red;*/
+	margin: auto;
+	margin-top: 5%;
+	margin-left: 20%;
+	border-style: double; 
+	border-width: 4px;
+	border-color: #663300;
+	font-size: 1.5em;	
+	padding-bottom: 5%; 
+}
+
+#introducir{
+	text-align: center;
+	padding: 5%;
+}
+
+#clasif{
+	text-align: center;
+	font-size: 1.2em;
+}
+
 #menu > h1{
+	text-align: center;
+	font-size: 2em;
+	padding: 5%;
+}
+
+#tutorial > h1{
+	text-align: center;
+	font-size: 2em;
+	padding: 5%;
+}
+#ranking > h1{
 	text-align: center;
 	font-size: 2em;
 	padding: 5%;
