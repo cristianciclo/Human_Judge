@@ -6,26 +6,13 @@ $(document).ready(function(){
     var variable=0;
     var puntos=0;
     var cont=0;
-        //Parámetros del temporizador, aquí cambiamos el numero multiplicado por 60 por el número de minutos que queremos que dure la partida.
-    var Minutos = 60 * 7,
-    reloj = document.querySelector('#reloj');
-    startTimer(Minutos, reloj);
-
-    cargarfondo();
-
-    function cargarfondo(){
-        var num = Math.round(Math.random() * 10);
-        //alert(num);
-        $("html").css("background-image", "url('Imagenes/backgrounds/"+num+".gif')");
-    }
-   
-
+    var ayudas=0;
+    var dificultad="";
     var preguntas = [
-
 
     /*---------------------Primer Bloque--------------------*/
         [
-            "1- Se le acusa de gritar, faltar al respeto y humillar en público a una persona de descendencia africana",
+            "Se le acusa de gritar, faltar al respeto y humillar en público a una persona de descendencia africana",
             "Articulo 1",
             "Articulo 3",
             "Articulo 4",
@@ -36,7 +23,7 @@ $(document).ready(function(){
         ],
 
         [
-            "3- Se le acusa de atracar a una anciana saliendo del supermercado, agrediendola físicamente y atentando contra su seguridad personal. ",
+            "Se le acusa de atracar a una anciana saliendo del supermercado, agrediendola físicamente y atentando contra su seguridad personal. ",
             "Articulo 5",
             "Articulo 3",
             "Articulo 6",
@@ -47,10 +34,10 @@ $(document).ready(function(){
         ],
 
         [
-            "4- Se le acusa de pertenecer a las guerrillas del LRA en Uganda, donde se han secuestrado a 20.000 niños durante los últimos años y los han obligado a servir como soldados o esclavas sexuales para el ejército.", 
+            "Se le acusa de pertenecer a las guerrillas del LRA en Uganda, donde se han secuestrado a 20.000 niños durante los últimos años y los han obligado a servir como soldados o esclavas sexuales para el ejército.", 
             "Articulo 1",
             "Articulo 7",
-            "Articulo 2",
+            "Articulo 3",
             "Articulo 4",
             "Articulo 4",
             true,
@@ -58,7 +45,7 @@ $(document).ready(function(){
         ],
 
         [
-            "5- Se le acusa de haber tenido a su mujer encerrada en el sótano por varios días, sin dejarla salir, torturándola física y psicológicamente. ",
+            "Se le acusa de haber tenido a su mujer encerrada en el sótano por varios días, sin dejarla salir, torturándola física y psicológicamente. ",
             "Articulo 3",
             "Articulo 5",
             "Articulo 4",
@@ -69,7 +56,7 @@ $(document).ready(function(){
         ],
 
         [
-            "6- Se le acusa de impedir de que una persona pueda tener defensa en un juicio.",
+            "Se le acusa de impedir de que una persona pueda tener defensa en un juicio.",
             "Articulo 1",
             "Articulo 3",
             "Articulo 6",
@@ -80,7 +67,7 @@ $(document).ready(function(){
         ],
 
         [
-            "7- Se le acusa de negar protección de testigos a una persona que ha colaborado en una investigación en la que su vida ha estado en juego.",
+            "Se le acusa de negar protección de testigos a una persona que ha colaborado en una investigación en la que su vida ha estado en juego.",
             "Articulo 7",
             "Articulo 3",
             "Articulo 4",
@@ -91,7 +78,7 @@ $(document).ready(function(){
         ],
 
         [
-            "8- Se le acusa de negar justicia a un sujeto agredido por motivos de racismo. ",
+            "Se le acusa de negar justicia a un sujeto agredido por motivos de racismo. ",
             "Articulo 5",
             "Articulo 7",
             "Articulo 8",
@@ -271,14 +258,41 @@ $(document).ready(function(){
 
 
     /*-----------------INICIAR----------------*/
+    function iniciooo(){
+        $("#menu").show();
+        $("#info").hide();
+        $("#nivel").hide()
+        $("#juez").hide();
+        $("#op").hide();
+        $("#ayuda").hide();
+        $("#tiempo").hide();
+        $("#continue").hide();
+        $("#puntos").hide();
+        $("#dificultad").hide();
+        $("#ayudajuego").hide();
+        $("#correcto").hide();
+        $("#incorrecto").hide();
+        /*$("#facil").hide();
+        $("#normal").hide();
+        $("#dificil").hide();*/
+    }
+
     function inicializar(){
         $("#nivel").text("Nivel: "+nivel);
-        $("#puntos").text("Puntos: "+puntos);       
+        $("#puntos").text("Puntos: "+puntos); 
+        $("#tiempo").show();
+        $("#nivel").show();
+        $("#puntos").show();    
+        $("#menu").hide();  
         //cargarPreguntas();
         cargarInfo();
         $("#continue").hide();
-        $("#gameover").hide();
-        $("#ayuda").hide();
+    
+        if(dificultad=="di"){
+            $("#ayuda").remove();
+        }else{
+            $("#ayuda").hide();
+        }
     }
 
     /*-------------CARGAR INFO ARTICULOS-----------------*/
@@ -297,7 +311,6 @@ $(document).ready(function(){
     }
 
 
-
     /*---------------COMENZAR NIVE--------------*/
 
     $("#btn5").click(function(){
@@ -305,7 +318,7 @@ $(document).ready(function(){
         $("#info").hide();
         $("#juez").show();
         $("#op").hide();
-        $("#ayuda").show();
+        /*$("#ayuda").show();*/
 
     });
 
@@ -314,22 +327,33 @@ $(document).ready(function(){
         if(pregunta < 5){
         variable = escogerPreguntas();        
         $("#juez").show();
+        $("#ayudajuego").text("");
         $("#pregunta").text(preguntas[variable][0]);
         $("#btn1").text(preguntas[variable][1]);
         $("#btn2").text(preguntas[variable][2]);
         $("#btn3").text(preguntas[variable][3]);
         $("#btn4").text(preguntas[variable][4]);
+        cargarAyuda(variable, 1);
+        cargarAyuda(variable, 2);
+        cargarAyuda(variable, 3);
+        cargarAyuda(variable, 4);
         $("#ok").click(function(){
             $("#op").show();
+            $("#ayuda").show();
             $("#juez").hide();
+
         });
 
         pregunta++;
        
         }else{
+            $("#juez").hide();
             alert("fin de nivel");
             $("#pregunta").text('Siguiente nivel');
             nivel++;
+            if(dificultad=="me"){
+                ayudas=3;
+            }
             $("#nivel").text("Nivel: "+nivel);
 
             $("button").hide();
@@ -340,6 +364,35 @@ $(document).ready(function(){
            
     }
 
+    /*-----------FACIL--------------------*/
+     $("#facil").click(function(){
+            puntos=0;
+            ayudas=999;
+            dificultad="fa";
+            inicializar();
+        });
+
+     /*-----------NORMAL--------------------*/
+     $("#normal").click(function(){
+            puntos=25;
+            ayudas=3;
+            dificultad="me";
+            inicializar();
+        });
+     /*-----------DIFICIL--------------------*/
+     $("#dificil").click(function(){
+            puntos=50;
+            ayudas=0;
+            dificultad="di";
+            inicializar();
+        });
+     /*-----------JUGAR--------------------*/
+     $("#jugar").click(function(){
+            $("#dificultad").slideToggle();
+            /*$("#facil").slideToggle();
+            $("#normal").slideToggle();
+            $("#dificil").slideToggle();*/
+        });
 
     /*-----------CONTINUAR-----------------*/
     $("#continue").click(function(){
@@ -356,50 +409,143 @@ $(document).ready(function(){
 
 
 
-
-/*LLAMAR A LA COMPROBACION*/
-
+/*LLAMAR A LA COMPROVACION*/
     $("#op").children("button").click(function(){
             comprobar($(this).text(),variable);
         });
 
 
-        $("#ayuda").click(function(){
+
+/*BOTON DE AYUDA*/
+    $("#ayuda").click(function(){
         if ($("#ayuda").text()=="Ayuda") {
-            $("#info").show();
-            $("#ayuda").text("Ocultar ayuda");
-            $("#btn5").hide();
+            if(ayudas!=0){
+                if(dificultad=="fa"){
+                    $("#ayudajuego").show();
+                    $("#ayuda").text("Ocultar");
+                    /*cargarAyuda();
+                    /*$("#btn5").hide();*/    
+                }else if(dificultad=="me"){
+                    $("#ayudajuego").show();
+                    $("#ayuda").text("Ocultar");
+                    /*cargarAyuda();
+                    /*$("#btn5").hide();*/
+                    ayudas--;
+                }    
+            }else{
+                alert("No te quedan ayudas");
+            }
+            
+            
+
         }else{
-            $("#info").hide();
+            $("#ayudajuego").hide();
             $("#ayuda").text("Ayuda");
-            $("#btn5").show();
+            /*$("#btn5").show();*/
         }
     });
 
+    function cargarAyuda(pregunta, parte){
+        /*$("ayudajuego").text("");*/
+        for(var h=0; h<preguntas.length; h++){
+            /*console.log(pregunta);
+            console.log(parte);
+            console.log(preguntas[pregunta][parte]);*/
+            if(preguntas[pregunta][parte] == preguntas[h][5]){
+                $("#ayudajuego").append("<p style='padding:15px;'><spam id='strong'>"+preguntas[h][5]+":</spam> "+preguntas[h][7]+"</p>");
+            }    
+        }
+        
 
+
+    }
 
 
 
 /*---------------COMPROBAR RESPUESTA------------------*/
     function comprobar(respuesta,op){
         if(respuesta==preguntas[op][5]){
-            alert("correcto");
+            /*alert("correcto");*/
+            $("#ok").hide();
             $("#op").hide();
+            $("#juez").show();
+            $("#pregunta").text("¡ CORRECTO !");
+            $("#correcto").fadeIn("slow",function(){
+                setTimeout(function() {
+                    $("#correcto").fadeOut("slow", function(){
+                        setTimeout(function() {
+
+                            $("#op").hide();
+                            $("#ayudajuego").hide();
+                            $("#ayuda").text("Ayuda");
+                            $("#ayuda").hide(); 
+                            puntos+=5;
+                            $("#puntos").text("Puntos: "+puntos);
+                            if (cont==15) {
+                                alert("Se acabó el juego.");
+                            }else{
+                                $("#ok").show();
+                                cargarPreguntas();
+                            }             
+
+                        },1);
+                    });
+
+                },1000);
+            });
+            /*$("#op").hide();
+            $("#ayudajuego").hide();
+            $("#ayuda").text("Ayuda");
+            $("#ayuda").hide(); 
             puntos+=5;
             $("#puntos").text("Puntos: "+puntos);
             if (cont==15) {
                 alert("Se acabó el juego.");
             }else{
                 cargarPreguntas();
-            }
+            }*/
         }else{
-            alert("incorrecto");     
-            $("#op").hide();             
+            $("#op").hide();
+            $("#juez").show();
+            $("#ok").hide();
+            $("#pregunta").text("¡ Incorrecto !");
+            /*$("#juez").text("¡ INCORRECTO !")
+            $("#juez").show();*/
+            /*alert("incorrecto"); */
+            $("#incorrecto").fadeIn("slow",function(){
+                setTimeout(function() {
+
+                    $("#incorrecto").fadeOut("slow",function(){
+                        setTimeout(function() {
+                            
+                            $("#ayudajuego").hide();
+                            $("#ayuda").text("Ayuda");
+                            $("#ayuda").hide();
+
+                            /*$("#juez").hide();*/             
+                            if (cont==15) {
+                                alert("Se acabó el juego.");
+                            }else{
+                                /*$("#juez").hide();*/
+                                $("#ok").show();
+                                cargarPreguntas();
+
+                            }
+
+                        },1);
+                    });
+
+                },1000);
+            });    
+            /*$("#op").hide();
+            $("#ayudajuego").hide();
+            $("#ayuda").text("Ayuda");
+            $("#ayuda").hide();             
             if (cont==15) {
                 alert("Se acabó el juego.");
             }else{
                 cargarPreguntas();
-            }           
+            } */          
         }
     }
 /*-----------COGER PREGUNTAS-------------------*/
@@ -420,6 +566,26 @@ $(document).ready(function(){
         }
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 /*-----------------HUD-----------------*/
 
     	//Tiempo
@@ -439,12 +605,9 @@ $(document).ready(function(){
 
         display.textContent = minutos + ":" + segundos; 
 
-            if (difer <= 0) {
-               // start = Date.now() + 1000;
-               //Aquí hay que detener totalmente la partida y aún no se ha hecho ya que el return no basta, habría que disparar el menú de nuevo (Aún no está hecho).
-               alert("Time out");
-                $("#gameover").show();
-            }
+        if (difer <= 0) {
+            start = Date.now() + 1000;
+        }
 	    };
 	    tempor();
 	    setInterval(tempor, 1000);
@@ -456,7 +619,7 @@ $(document).ready(function(){
 	    startTimer(fiveMinutes, display);
 	};
 
-    inicializar();
+    iniciooo();
 
     
 });

@@ -7,11 +7,10 @@
 /*# sourceMappingURL=bootstrap.min.css.map */
 
 html { 
- background: no-repeat center center fixed; 
+  background:  url(../Imagenes/background-clean.gif) no-repeat center center fixed; 
   background-size: cover;
   font-family: texto;
 }
-
 *{
 	font-family: texto;
 	font-size: 0.7em;
@@ -43,12 +42,6 @@ html {
 	background: #663300; 
     
 }
-
-
-body{
-	overflow-y: hidden;
-}
-
 
 .degradado{
 	border-color: #663300;
@@ -161,32 +154,84 @@ body{
 
 #continue{
 	position: absolute;
-	bottom: 40px;
-	left:43.5%;
+	bottom: 10px;
+	left:47%;
 	margin: auto;
-	font-family: texto;
-	font-size: 2em;
+
 }
 
-
-#gameover{
+#menu{
 	position: absolute;
-	top: 240px;
-	left:44%;
-	margin: auto;
-	font-family: texto;
-	font-size: 2em;
-
-
-}
-
-#info{
 	width: 60%;
-	height: 680px;
+	min-height: 60%;
 	border-radius: 1em;
 	/*background-color: red;*/
 	margin: auto;
-	margin-top: 100px;
+	margin-top: 5%;
+	margin-left: 20%;
+	border-style: double; 
+	border-width: 4px;
+	border-color: #663300;
+	font-size: 1.5em;	
+	padding-bottom: 5%; 
+}
+
+#menu > h1{
+	text-align: center;
+	font-size: 2em;
+	padding: 5%;
+}
+
+#opciones{
+
+}
+
+#opciones > button{
+	width: 20%;
+	margin-bottom: 2%;
+	font-size: 1.5em;
+	margin-left: 40%;
+	color: black;
+}
+
+#subopciones{
+	margin-bottom: 2%;
+}
+
+#subopciones > button{
+	width: 20%;
+	font-size: 3em;
+	margin-left: 45%;
+}
+
+
+
+#info{
+	position: absolute;
+	width: 60%;
+	height: 60%;
+	border-radius: 1em;
+	/*background-color: red;*/
+	margin: auto;
+	margin-top: 5%;
+	margin-left: 20%;
+	border-style: double; 
+	border-width: 4px;
+	border-color: #663300;
+	font-size: 1.5em;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#ayudajuego{
+	position: absolute;
+	width: 60%;
+	height: 60%;
+	border-radius: 1em;
+	/*background-color: red;*/
+	margin: auto;
+	margin-top: 5%;
+	margin-left: 20%;
 	border-style: double; 
 	border-width: 4px;
 	border-color: #663300;
@@ -201,8 +246,8 @@ body{
 	margin-left: 45%;
 }
 #pregunta{
+	font-size: 0.6em;
 	margin-left: -6%;
-
 	margin-right: 5%;
 }
 
@@ -221,11 +266,16 @@ body{
 #ayuda{
 	font-family: texto;
 	position: absolute;	
+	color: black;
 	top: 190px;
 	right: 55px;
 	font-size: 2em;
-
+	border-style: double; 
+	border-width: 4px;
+	border-color: #663300;
+	border-radius: 1em;
 }
+
 
 #ti{
 	font-size: 1.5em;
@@ -234,4 +284,30 @@ body{
 #strong{
 	font-size: 1.5em;
 	color:#663300;
+}
+
+#correcto{
+	position: absolute;
+	/*top: 275px;
+	left: 50px;*/
+	top: 44%;
+	left: 4%;
+}
+#correcto > img{
+	/*width: 500px;*/
+	width: 50%;
+}
+
+#incorrecto{
+	position: absolute;
+	/*top: 275px;
+	left: 50px;*/
+	width: 50%;
+	top: 28%;
+	left: 50%;
+}
+
+#incorrecto > img{
+	/*width: 500px;*/
+	width: 100%;
 }

@@ -11,19 +11,46 @@
     <script type="text/javascript" src="JavaScript/java.js"></script>
 </head>
 <body>
+	<div id="menu" class="degradado">
+		<h1> - Human Judge - </h1>
+		<div id="opciones">
+			<button id="jugar" class="degradado">Jugar</button>
+			<div id="dificultad">
+			<div id="subopciones"><button id="facil" class="degradado">Facil</button></div>
+			<div id="subopciones"><button id="normal" class="degradado">Normal</button></div>
+			<div id="subopciones"><button id="dificil" class="degradado">Dificil</button></div>
+			</div>			
+		</div>
+		<div id="opciones"><button id="tuto" class="degradado">Tutorial</button></div>
+		<div id="opciones"><button id="rank" class="degradado">Ranking</button></div>		
+	</div>
+
 	<div id="puntos" class="degradado">PUNTOS</div>
 	<div id="nivel" class="degradado">NIVEL</div>
 	<div id="tiempo" class="degradado"><SPAN id="ti">TIEMPO</SPAN>  <br>
 		<span id="reloj"></span>
 	</div>
-	<button id="ayuda" class="btn btn-warning">Ayuda
+	<button id="ayuda" class="degradado">Ayuda
 		
 	</button>
+
 	<div id="info" class="degradado">
 		<button id="btn5" class="btn btn-primary">
 			<img src="./Imagenes/start.gif" id="imgbtn">
 		</button>
 	</div>
+
+	<div id="ayudajuego" class="degradado">
+		
+	</div>
+
+	<div id="correcto">
+		<img src="./Imagenes/correcto.gif">
+	</div>
+	<div id="incorrecto">
+		<img src="./Imagenes/incorrecto.gif">
+	</div>
+
 	<div id="juez" class="degradado">
 		<div id="imjuez"><img src="./Imagenes/juez.gif"></div>
 		<p id="pregunta">Pregunta</p>
@@ -38,7 +65,6 @@
 		<button id="btn4" class="btn btn-primary">Set Text</button>
 	</div>
 	<button id="continue" class="btn btn-warning">Continuar</button>
-	<button id="gameover" class="btn btn-danger">Ranking</button>
 	
 </body>
 </html>
