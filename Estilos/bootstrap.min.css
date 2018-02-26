@@ -175,6 +175,15 @@ body{
 
 }
 
+#fireleft{
+	float: left;
+}
+
+#fireright{
+	float: right;
+	margin-right: -5em;
+}
+
 #menu{
 	position: absolute;
 	width: 60%;
@@ -191,6 +200,16 @@ body{
 	padding-bottom: 5%; 
 }
 
+#finlvl{
+	font-size: 5em;
+	color: white;
+	position: absolute;
+   left: 50%;
+   top: 50%; 
+   margin-left: -6em;
+   margin-top: -1em;
+}
+
 #tutorial{
 	position: absolute;
 	width: 60%;
@@ -204,13 +223,15 @@ body{
 	border-width: 4px;
 	border-color: #663300;
 	font-size: 1.5em;	
-	padding-bottom: 5%; 
+	padding-left: 5%; 	
+	padding-right: 5%; 
+	padding-bottom: 3%;
 }
 
 #ranking{
 	position: absolute;
 	width: 60%;
-	min-height: 60%;
+	height: 60%;
 	border-radius: 1em;
 	/*background-color: red;*/
 	margin: auto;
@@ -221,6 +242,10 @@ body{
 	border-color: #663300;
 	font-size: 1.5em;	
 	padding-bottom: 5%; 
+
+
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
 
 #introducir{
@@ -259,6 +284,14 @@ body{
 	margin-bottom: 2%;
 	font-size: 1.5em;
 	margin-left: 40%;
+	color: black;
+}
+
+#continue{
+	width: 20%;
+	margin-bottom: 2%;
+	font-size: 1.5em;
+	left: 40%;
 	color: black;
 }
 
