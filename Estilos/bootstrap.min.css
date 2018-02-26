@@ -43,6 +43,10 @@ html {
     
 }
 
+body{
+	overflow-y: hidden;
+}
+
 .degradado{
 	border-color: #663300;
 	background: rgba(255,146,10,0.78);
@@ -160,6 +164,17 @@ html {
 
 }
 
+#gameover{
+	position: absolute;
+	top: 240px;
+	left:44%;
+	margin: auto;
+	font-family: texto;
+	font-size: 2em;
+
+
+}
+
 #menu{
 	position: absolute;
 	width: 60%;
@@ -203,7 +218,6 @@ html {
 	font-size: 3em;
 	margin-left: 45%;
 }
-
 
 
 #info{
@@ -287,11 +301,13 @@ html {
 }
 
 #correcto{
-	position: absolute;
-	/*top: 275px;
-	left: 50px;*/
+	/*position: absolute;
 	top: 44%;
+	left: 4%;*/
+	position: absolute;
+	bottom: 5%;
 	left: 4%;
+
 }
 #correcto > img{
 	/*width: 500px;*/
@@ -302,9 +318,9 @@ html {
 	position: absolute;
 	/*top: 275px;
 	left: 50px;*/
-	width: 50%;
-	top: 28%;
-	left: 50%;
+	width: 40%;
+	bottom: 0.2%;
+	right: 2%;
 }
 
 #incorrecto > img{

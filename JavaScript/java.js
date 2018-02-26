@@ -8,6 +8,23 @@ $(document).ready(function(){
     var cont=0;
     var ayudas=0;
     var dificultad="";
+
+
+    //Parámetros del temporizador, aquí cambiamos el numero multiplicado por 60 por el número de minutos que queremos que dure la partida.
+
+     var Minutos = 60 * 7,
+    reloj = document.querySelector('#reloj');
+    startTimer(Minutos, reloj);
+
+
+    function cargarfondo(){
+        var num = Math.round(Math.random() * 10);
+        //alert(num);
+        $("html").css("background-image", "url('Imagenes/backgrounds/"+num+".gif')");
+    }
+
+   
+
     var preguntas = [
 
     /*---------------------Primer Bloque--------------------*/
@@ -272,6 +289,7 @@ $(document).ready(function(){
         $("#ayudajuego").hide();
         $("#correcto").hide();
         $("#incorrecto").hide();
+        $("#gameover").hide();
         /*$("#facil").hide();
         $("#normal").hide();
         $("#dificil").hide();*/
@@ -279,7 +297,8 @@ $(document).ready(function(){
 
     function inicializar(){
         $("#nivel").text("Nivel: "+nivel);
-        $("#puntos").text("Puntos: "+puntos); 
+        $("#puntos").text("Puntos: "+puntos);         
+        $("#gameover").hide();
         $("#tiempo").show();
         $("#nivel").show();
         $("#puntos").show();    
@@ -305,7 +324,7 @@ $(document).ready(function(){
 
         //$("#info").text("");
         for (var i = inicio; i < busqueda; i++) {
-            $("#info").append("<p style='padding:15px;'><spam id='strong'>"+preguntas[i][5]+":</spam> "+preguntas[i][7]+"</p>");     
+            $("#info").append("<p style='padding:15px;'><span id='strong'>"+preguntas[i][5]+":</span> "+preguntas[i][7]+"</p>");     
         }
         //$("#info").append("<button id='btn5' class='btn btn-primary'>Comenzar</button>") ;
     }
@@ -323,7 +342,8 @@ $(document).ready(function(){
     });
 
     /*---------------CARGAR PREGUNTAS-------------*/
-    function cargarPreguntas(){     
+    function cargarPreguntas(){   
+        cargarfondo();
         if(pregunta < 5){
         variable = escogerPreguntas();        
         $("#juez").show();
@@ -405,11 +425,11 @@ $(document).ready(function(){
             //cargarPreguntas();
             cargarInfo();
             $("#ayuda").hide();
-        });
+    });
 
 
 
-/*LLAMAR A LA COMPROVACION*/
+/*LLAMAR A LA COMPROBACION*/
     $("#op").children("button").click(function(){
             comprobar($(this).text(),variable);
         });
@@ -568,24 +588,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
 /*-----------------HUD-----------------*/
 
     	//Tiempo
@@ -605,9 +607,13 @@ $(document).ready(function(){
 
         display.textContent = minutos + ":" + segundos; 
 
-        if (difer <= 0) {
-            start = Date.now() + 1000;
-        }
+       
+            if (difer <= 0) {
+               // start = Date.now() + 1000;
+               //Aquí hay que detener totalmente la partida y aún no se ha hecho ya que el return no basta, habría que disparar el menú de nuevo (Aún no está hecho).
+               alert("Time out");
+                $("#gameover").show();
+            }
 	    };
 	    tempor();
 	    setInterval(tempor, 1000);
