@@ -298,7 +298,6 @@ $(document).ready(function(){
 
     function inicializar(){
         nivel=1;
-        puntos=0;
         cont=0;
         pregunta=0;
         busqueda=7;
@@ -380,7 +379,6 @@ $(document).ready(function(){
        
         }else{
             $("#juez").hide();
-            alert("fin de nivel");
             $("#fireworks").show();
             $("#pregunta").text('Siguiente nivel');
             nivel++;
@@ -415,7 +413,7 @@ $(document).ready(function(){
             ayudas=3;
             dificultad="me";
             inicializar();
-            var Minutos = 60 * 7,
+            var Minutos = 60 * 7;
             reloj = document.querySelector('#reloj');
             startTimer(Minutos, reloj);
         });
@@ -425,7 +423,7 @@ $(document).ready(function(){
             ayudas=0;
             dificultad="di";
             inicializar();
-            var Minutos = 60 * 7,
+            var Minutos = 60 * 7;
             reloj = document.querySelector('#reloj');
             startTimer(Minutos, reloj);
         });
@@ -436,7 +434,6 @@ $(document).ready(function(){
 
     /*-----------CONTINUAR-----------------*/
     $("#continue").click(function(){
-            alert("cargar siguiente nivel");
             $("#fireworks").hide();
             pregunta=0;
             inicio=busqueda;
